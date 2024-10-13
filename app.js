@@ -23961,36 +23961,16 @@ const languages = [
   },
 ];
 
-// const tilSoni = {}; // Takrorlanmas nom qo'yildi
-
+// const tilSoni = {};
 // languages.forEach((country) => {
-//   if (country.languages) {
-//     Object.values(country.languages).forEach((language) => {
-//       tilSoni[language] = (tilSoni[language] || 0) + 1; // Obyektlarni qayta yozish
-//     });
-//   }
+//   Object.values(country.languages || {}).forEach((language) => {
+//     tilSoni[language] = (tilSoni[language] || 0) + 1;
+//   });
 // });
-
-// const topLanguagesList = Object.entries(tilSoni) // Natijani olish
-//   .sort(([, countA], [, countB]) => countB - countA) // Saralash kamayish tartibida
-//   .slice(0, 5); // Eng ko'p ishlatiladigan 5ta tildan foydalaniladigan davlatlarni olish
-
 // console.log("Eng ko'p ishlatiladigan tillar va ularning davlatlar soni:");
-// topLanguagesList.forEach(([language, count]) => {
-//   console.log(`${language}: ${count} davlatlar`);
-// });
-
-const tilSoni = {};
-
-languages.forEach((country) => {
-  Object.values(country.languages || {}).forEach((language) => {
-    tilSoni[language] = (tilSoni[language] || 0) + 1;
-  });
-});
-console.log("Eng ko'p ishlatiladigan tillar va ularning davlatlar soni:");
-Object.entries(tilSoni)
-  .sort((a, b) => b[1] - a[1]) // Saralash kamayish tartibida
-  .slice(0, 5) // Eng ko'p ishlatiladigan 5 til
-  .forEach(([language, count]) => {
-    console.log(`${language}: ${count} davlatlar`);
-  });
+// Object.entries(tilSoni)
+//   .sort((a, b) => b[1] - a[1])
+//   .slice(0, 5)
+//   .forEach(([language, count]) => {
+//     console.log(`${language}: ${count} davlatlar`);
+//   });
