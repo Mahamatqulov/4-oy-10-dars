@@ -23961,16 +23961,18 @@ const languages = [
   },
 ];
 
-// const tilSoni = {};
-// languages.forEach((country) => {
-//   Object.values(country.languages || {}).forEach((language) => {
-//     tilSoni[language] = (tilSoni[language] || 0) + 1;
-//   });
-// });
-// console.log("Eng ko'p ishlatiladigan tillar va ularning davlatlar soni:");
-// Object.entries(tilSoni)
-//   .sort((a, b) => b[1] - a[1])
-//   .slice(0, 5)
-//   .forEach(([language, count]) => {
-//     console.log(`${language}: ${count} davlatlar`);
-//   });
+const tilSoni = languages
+  .map((country) => Object.values(country.languages || {}))
+  .flat()
+  .reduce((acc, language) => {
+    acc[language] = (acc[language] || 0) + 1;
+    return acc;
+  }, {});
+
+console.log("Eng ko'p ishlatiladigan tillar va ularning davlatlar soni:");
+Object.entries(tilSoni)
+  .sort((a, b) => b[1] - a[1])
+  .slice(0, 5)
+  .forEach(([language, count]) => {
+    console.log(`${language}: ${count} davlatlar`);
+  });
